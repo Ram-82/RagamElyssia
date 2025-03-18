@@ -15,7 +15,7 @@
     "baseUrl": ".",
     "types": ["node"],
     "paths": {
-      "@shared/*": ["../shared/*"] // Correct path to the shared folder
+      "@shared/*": ["../shared/*"] , // Correct path to the shared folder
     }
   }
 }

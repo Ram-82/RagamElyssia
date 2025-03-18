@@ -8,6 +8,7 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
+
 export const bookings = pgTable("bookings", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").references(() => users.id),

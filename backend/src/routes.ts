@@ -8,14 +8,16 @@
 
 
 import express, { Express, Request, Response } from "express"; // Import express and its types
-import path from "path"; // Import path for resolving file paths
+import path, { dirname } from "path"; // Import path for resolving file paths
+import { fileURLToPath } from "url";
 import { setupAuth } from "./auth";
 import { storage } from "./storage"; // Import the storage instance
 import Stripe from "stripe";
 import dotenv from 'dotenv';
 
 dotenv.config(); // Load environment variables from .env file
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // console.log("Stripe Secret Key:", process.env.STRIPE_SECRET_KEY);
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 if (!stripeKey) {
