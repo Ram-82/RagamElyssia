@@ -1,0 +1,28 @@
+# Frontend (e.g., React, Next.js, etc.)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.development
+frontend/.env.production
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Backend (e.g., Node.js, Python, etc.)
+backend/node_modules/
+backend/.env
+backend/.env.local
+backend/logs/
+backend/dist/
+backend/build/
+
+# IDE/Editor files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
