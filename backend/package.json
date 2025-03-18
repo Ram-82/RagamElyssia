@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "vercel-build": "node build.js",
     "dev": "tsx src/index.ts",
-    "build": "esbuild src/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --external:vite --external:@neondatabase/serverless",
+    "build": "npm run build:clean && npm run build:esbuild",
+    "build:clean": "rm -rf dist || true",
+    "build:esbuild": "esbuild src/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --external:vite --external:@neondatabase/serverless",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc",
     "db:push": "drizzle-kit push"
