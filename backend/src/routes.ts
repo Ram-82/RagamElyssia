@@ -7,7 +7,7 @@
 // dotenv.config(); // Load environment variables from .env file
 
 
-import express, { Router, Request, Response } from "express"; // Import express and its types
+import express, { Express, Request, Response } from "express"; // Import express and its types
 import path from "path"; // Import path for resolving file paths
 import { setupAuth } from "./auth";
 import { storage } from "./storage"; // Import the storage instance
@@ -17,9 +17,12 @@ import dotenv from 'dotenv';
 dotenv.config(); // Load environment variables from .env file
 
 // console.log("Stripe Secret Key:", process.env.STRIPE_SECRET_KEY);
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2023-10-16",
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeKey) {
+  throw new Error("Stripe secret key is missing");
+}
+const stripe = new Stripe(stripeKey, {
+  apiVersion: "2025-02-24.acacia",
 });
 
 
@@ -29,7 +32,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 export const registerRoutes = (app: Express) => {
-  const router = Router();
+  const router = express.Router();
 
   setupAuth(app);
 
@@ -40,6 +43,8 @@ export const registerRoutes = (app: Express) => {
   app.get("/health", (req: Request, res: Response) => {
     res.json({ message: "API is up and running!" });
   });
+
+
 
   // Storage-related routes
   router.get("/storage/users", async (_req: Request, res: Response) => {
