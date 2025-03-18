@@ -1,6 +1,14 @@
-import express, { Express, Request, Response } from "express"; // Import express and its types
+// import { Router } from "express";
+// import { setupAuth } from "./auth";
+// import { storage } from "./storage"; // Import the storage instance
+// import Stripe from "stripe";
+// import dotenv from 'dotenv';
+
+// dotenv.config(); // Load environment variables from .env file
+
+
+import express, { Router, Request, Response } from "express"; // Import express and its types
 import path from "path"; // Import path for resolving file paths
-import { Router } from "express";
 import { setupAuth } from "./auth";
 import { storage } from "./storage"; // Import the storage instance
 import Stripe from "stripe";
@@ -27,7 +35,6 @@ export const registerRoutes = (app: Express) => {
 
   app.get("/", (req: Request, res: Response) => {
     res.send("Backend is working fine!\n\n");
-    
   });
 
   app.get("/health", (req: Request, res: Response) => {
