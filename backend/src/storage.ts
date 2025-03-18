@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+import { users, type User, type InsertUser } from "./schema";
 import session from "express-session";
 import createMemoryStore from "memorystore";
 

@@ -6,8 +6,10 @@ import cors from "cors";
 const app = express();
 // Enable CORS for all routes
 app.use(cors({
-  origin: "http://localhost:5173", // Allow requests from the frontend
-  credentials: true, // Allow cookies and authentication headers
+  origin: process.env.NODE_ENV === "production" 
+    ? process.env.FRONTEND_URL || true // Use your frontend URL in production
+    : "http://localhost:5173",
+  credentials: true,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
