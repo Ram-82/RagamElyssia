@@ -10,6 +10,8 @@ app.use(cors({
     "https://frontend-xi-lake-22.vercel.app",
     "https://portfolio-frontend-pi-beryl.vercel.app",
     // "http://localhost:5173", 
+    "https://ragamelyssia.com/",
+    "https://www.ragamelyssia.com",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
