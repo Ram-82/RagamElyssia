@@ -6,9 +6,13 @@ import cors from "cors";
 const app = express();
 // Enable CORS for all routes
 app.use(cors({
-  origin: process.env.NODE_ENV === "production" 
-    ? process.env.FRONTEND_URL || true // Use your frontend URL in production
-    : "http://localhost:5173",
+  origin: [
+    "https://frontend-xi-lake-22.vercel.app",
+    "https://portfolio-frontend-pi-beryl.vercel.app",
+    // "http://localhost:5173", 
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
 app.use(express.json());
